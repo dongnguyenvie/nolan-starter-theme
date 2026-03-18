@@ -1,0 +1,14 @@
+{
+  "name": "nolan-starter-theme",
+  "version": "1.0.0",
+  "private": true,
+  "description": "WordPress starter theme with Alpine.js + Tailwind CSS + esbuild",
+  "license": "GPL-2.0-or-later",
+  "scripts": {
+    "build:css": "npx tailwindcss@3 -i src/input.css -o assets/tailwind.css --minify",
+    "watch:css": "npx tailwindcss@3 -i src/input.css -o assets/tailwind.css --watch",
+    "build:js": "npx esbuild js/main.js --bundle --minify --outfile=assets/app.min.js --format=iife",
+    "watch:js": "npx esbuild js/main.js --bundle --outfile=assets/app.min.js --format=iife --watch",
+    "build": "npm run build:css && npm run build:js"
+  }
+}
