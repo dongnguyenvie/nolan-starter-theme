@@ -10,6 +10,13 @@ defined( 'ABSPATH' ) || exit;
 
 use StarterTheme\Module\ActionLog\ActionLogModule;
 
+// Suppress $wpdb HTML error output on REST requests to prevent JSON corruption and SQL leaks
+add_action( 'rest_api_init', function () {
+	global $wpdb;
+	$wpdb->suppress_errors( true );
+	$wpdb->show_errors( false );
+} );
+
 add_action( 'after_setup_theme', function () {
 	ActionLogModule::init();
 
