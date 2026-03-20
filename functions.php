@@ -136,6 +136,7 @@ add_action( 'wp_enqueue_scripts', function () {
 /**
  * Theme includes — core utilities.
  */
+require get_template_directory() . '/inc/theme-page-setup.php';
 require get_template_directory() . '/inc/custom-header.php';
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';

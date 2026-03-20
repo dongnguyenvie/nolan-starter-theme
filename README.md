@@ -57,6 +57,7 @@ nolan-starter-theme/
 │   └── tailwind.css
 ├── inc/
 │   ├── bootstrap.php                # Module loader
+│   ├── theme-page-setup.php         # Auto-create pages + admin sync UI
 │   ├── custom-header.php
 │   ├── customizer.php
 │   ├── template-functions.php
@@ -90,6 +91,18 @@ nolan-starter-theme/
 ├── package.json                     # JS/CSS build scripts
 └── tailwind.config.js
 ```
+
+## Page Auto-Setup
+
+The theme can auto-create required pages with correct templates on activation.
+
+1. Create your page template (e.g. `page-about.php`)
+2. Register it in `inc/theme-page-setup.php` → `starter_theme_required_pages()`:
+   ```php
+   [ 'slug' => 'about', 'title' => 'About', 'template' => 'page-about.php' ],
+   ```
+3. Pages are created on theme activation, or manually via **Appearance → Sync Pages**
+4. Idempotent — safe to run multiple times (creates missing, fixes wrong templates)
 
 ## Core Module: ActionLog
 
